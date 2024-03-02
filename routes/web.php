@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/LoginPage', function(){
+    return view('LoginPage');
+});
+
+Route::get('/scan', function(){
+    return view('scanner');
+});
 
 Route::get('/', function () {
     return view('welcome');
