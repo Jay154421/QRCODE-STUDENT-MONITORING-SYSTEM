@@ -9,10 +9,12 @@ module.exports = {
       extend: {
         fontFamily: {
           'inter': ['Inter', 'sans-serif'],
+          'quicksand': ['Quicksand', 'sans-serif'],
         },
       },
     },
     plugins: [
-        require('flowbite/plugin')
+        require('flowbite/plugin'),
+      
     ],
   }
