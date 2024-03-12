@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <title>ScannerCode</title>
 
-    @vite(['resources/css/app.css','resources/js/app.js']);
+    @vite(['resources/css/app.css', 'resources/js/app.js']);
 </head>
+
 <body>
     <a href="/admin/dashboard" class="absolute right-0 text-4xl">X</a>
     <div class="container mx-auto px-4">
@@ -18,8 +20,10 @@
                 <video id="preview" class="w-full h-auto"></video>
             </div>
             <div class="ml-10">
-                <label for="default-input" class="block mb-2 text-xl font-inter text-center  dark:text-white">SCAN QR CODE</label>
-                <input type="text" id="text" readonly value="" class="bg-gray-50 justify-center border rounded-lg w-full">
+                <label for="default-input" class="block mb-2 text-xl font-inter text-center  dark:text-white">SCAN QR
+                    CODE</label>
+                <input type="text" id="text" readonly value=""
+                    class="bg-gray-50 justify-center border rounded-lg w-full">
                 <table class="min-w-full divide-y divide-gray-200 mt-4">
                     <thead class="bg-gray-50">
                         <tr>
@@ -56,22 +60,25 @@
                 </table>
             </div>
         </div>
-        
+
     </div>
     <script>
-        let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-        scanner.addListener('scan',function(c){
-            document.getElementById('text').value=c;
+        let scanner = new Instascan.Scanner({
+            video: document.getElementById('preview')
         });
-        Instascan.Camera.getCameras().then(function (cameras) {
-            if (cameras.length >  0) {
+        scanner.addListener('scan', function(c) {
+            document.getElementById('text').value = c;
+        });
+        Instascan.Camera.getCameras().then(function(cameras) {
+            if (cameras.length > 0) {
                 scanner.start(cameras[0]);
             } else {
                 console.error('No cameras found.');
             }
-        }).catch(function (e) {
+        }).catch(function(e) {
             console.error(e);
         });
     </script>
 </body>
+
 </html>

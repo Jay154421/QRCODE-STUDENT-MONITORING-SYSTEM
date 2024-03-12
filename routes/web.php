@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ParentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function(){
+
+
+
+Route::get('/', function () {
     return view('LoginPage');
 });
 
@@ -25,11 +29,12 @@ Route::get('/admin/studentInfo', function () {
     return view('admin.students_info');
 });
 
-Route::get('/admin/parentInfo', function () {
-    return view('admin.parents_info');
-});
 
-Route::get('/scan', function(){
+Route::get('/admin/parentInfo', [ParentController::class, 'index']);
+Route::post('/admin/parentInfo', [ParentController::class, 'store']);
+
+
+Route::get('/scan', function () {
     return view('admin.scanner');
 });
 
@@ -48,4 +53,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
