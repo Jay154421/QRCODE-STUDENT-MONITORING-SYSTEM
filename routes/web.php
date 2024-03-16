@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ParentController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,17 +15,33 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/LoginPage', function(){
+
+
+
+Route::get('/', function () {
     return view('LoginPage');
 });
 
-Route::get('/scan', function(){
-    return view('scanner');
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+});
+Route::get('/admin/studentInfo', function () {
+    return view('admin.students_info');
 });
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/admin/parentInfo', [ParentController::class, 'index']);
+Route::post('/admin/parentInfo', [ParentController::class, 'store']);
+
+
+Route::get('/scan', function () {
+    return view('admin.scanner');
 });
+
+
+Route::post('/admin/Dashboard', [LoginController::class, 'loginAction'])->name('admin.login');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,4 +53,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

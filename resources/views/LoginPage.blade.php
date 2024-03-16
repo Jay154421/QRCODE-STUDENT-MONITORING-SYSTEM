@@ -23,7 +23,14 @@
                 <img src="{{ asset('image/Logo.PNG') }}" alt="Logo" >
             </div>
             <h1 class="text-4xl font-semibold italic font-inter text-center mb-10" style="color: #200707;">Student.QR code</h1>
-            <form action="/login" method="post">
+            <form method="POST" action="{{ route('admin.login') }}">
+                @csrf
+                @if (session('error'))
+                <div class="bg-red-100 border border-red-400 text-red-700 px-3 py-1 rounded relative" role="alert">
+                    <strong class="font-bold">Error!</strong>
+                    <span class="block sm:inline">{{ session('error') }}</span>
+                </div>
+            @endif
                 <div class="mb-8 flex flex-col sm:flex-row justify-center">
                     <input type="text" placeholder="Username" id="username" name="username" class="mt-1 block w-full sm:w-96 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                 </div>
