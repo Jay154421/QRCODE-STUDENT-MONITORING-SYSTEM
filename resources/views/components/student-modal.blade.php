@@ -51,7 +51,7 @@
             <div class="flex justify-center">
                 <div class="mb-4 mr-[80px] flex flex-col">
                     <label class="text-sm">QR CODE</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Name">
+                    <input type="Text" class="rounded-md shadow-md" placeholder="qr code">
                 </div>
                 <div class="mb-4 flex flex-col ">
                     <label class="text-sm" for="">COURSE</label>
@@ -70,7 +70,7 @@
             </div>
             <div class="flex justify-center">
                 <div class="mb-4 mr-[80px] flex flex-col">
-                    <label class="text-sm">PARENT NAME</label>
+                    <label class="text-sm">PARENT</label>
                     <input type="Text" class="rounded-md shadow-md" placeholder="Parent Name">
                 </div>
                 <div class="mb-4 flex flex-col ">
@@ -84,6 +84,16 @@
                     <input type="Text" class="rounded-md shadow-md" placeholder="Age">
                 </div>
                 <div class="mb-4 flex flex-col ">
+                    <label class="text-sm" for="">GENDER</label>
+                    <input type="Password" class="rounded-md shadow-md" placeholder="Gender">
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <div class="mb-4 mr-[80px] flex flex-col">
+                    <label class="text-sm">USERNAME</label>
+                    <input type="Text" class="rounded-md shadow-md" placeholder="Username">
+                </div>
+                <div class="mb-4 flex flex-col ">
                     <label class="text-sm" for="">PASSWORD</label>
                     <input type="Password" class="rounded-md shadow-md" placeholder="Password">
                 </div>
@@ -91,9 +101,9 @@
 
 
             <!--Footer-->
-            <div class="flex justify-center pt-2">
+            <div class="flex justify-center pt-4">
                 <button
-                    class="item px-6 py-2 text-white font-semibold rounded-lg bg-red-900 hover:bg-red-300">Submit</button>
+                    class="item px-6 py-2 text-white font-semibold rounded-lg bg-red-900 border hover:border-red-900">Submit</button>
             </div>
 
         </div>

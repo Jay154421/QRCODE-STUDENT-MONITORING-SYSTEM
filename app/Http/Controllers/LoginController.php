@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Laracasts\Flash\Flash;
+use Symfony\Component\Console\Input\Input;
 
 class LoginController extends Controller
 {
@@ -16,12 +17,15 @@ class LoginController extends Controller
         ]);
 
 
-        // login code
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+        // login
+        if (auth()->guard('admin')->attempt(['username' => $request->username, 'password' => $request->password])) {
             return redirect('/admin/dashboard');
+        } elseif (auth()->guard('parent')->attempt(['username' => $request->username, 'password' => $request->password])) {
+            return redirect('/parent/dashboard');
+        } elseif (auth()->guard('parent')->attempt(['username' => $request->username, 'password' => $request->password])) {
+            return redirect('/student/dashboard');
         } else {
-            session()->flash('error', 'Login failed !');
-            return redirect('/');
+            return redirect('/')->with('error', 'Login failed !');
         }
     }
 }

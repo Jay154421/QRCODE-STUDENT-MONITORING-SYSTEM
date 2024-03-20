@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('parents', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('gender');
-            $table->string('age');
-            $table->string('address');
-            $table->string('phone');
+            // $table->string('name');
+            // $table->string('gender');
+            // $table->string('age');
+            // $table->string('address');
+            // $table->string('phone');
             $table->string('username')->unique();
             $table->string('password');
             $table->timestamps();

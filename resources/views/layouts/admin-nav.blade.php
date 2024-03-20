@@ -1,9 +1,11 @@
-<aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen " aria-label="Sidebar">
+<aside id="default-sidebar" class=" absolute top-0 left-0 z-40 w-64 h-screen " aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800" style="background-color: #6C1B1B;">
-        <div class="flex justify-center">
-            <img src="{{ asset('image/Logo.PNG') }}" alt="Logo">
-        </div>
-        <h1 class="text-2xl font-inter text-center text-white mb-10">Admin</h1>
+        <a href="/admin/dashboard">
+            <div class="flex justify-center">
+                <img src="{{ asset('image/Logo.PNG') }}" alt="Logo">
+            </div>
+            <h1 class="text-2xl font-inter text-center text-white mb-10">Admin</h1>
+        </a>
         <ul class="space-y-4 font-medium ">
             <li>
                 <a href="/admin/dashboard" class="flex items-center p-2 bg-gray-100 rounded-md hover:bg-red-300">
@@ -44,11 +46,12 @@
                 </a>
             </li>
         </ul>
-        <a href="#"
+        <a href="{{ route('admin.logout') }}"
             class="absolute bottom-4 left-3 flex items-center p-2 w-32 bg-gray-100 rounded-xl hover:bg-red-300">
             <img src="https://cdn-icons-png.flaticon.com/128/1716/1716274.png" class="w-[25px] h-[25px] "
                 alt="">
-            <span class="flex-1 ml-2 mr-2 whitespace-nowrap font-semibold italic font-inter">Logout</span>
+            <span class="flex-1 ml-2 mr-2 whitespace-nowrap font-semibold italic font-inter">
+                Logout</span>
         </a>
     </div>
 </aside>

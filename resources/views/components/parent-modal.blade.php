@@ -67,13 +67,13 @@
                 </div>
                 <div class="mx-8 mb-4 flex flex-col justify-center">
                     <label class="text-sm">PASSWORD</label>
-                    <input type="Text" name="password" class="rounded-md shadow-md" placeholder="Password">
+                    <input type="password" name="password" class="rounded-md shadow-md" placeholder="Password">
                 </div>
 
                 <!--Footer-->
                 <div class="flex justify-center pt-2">
                     <button
-                        class="item px-6 py-2 text-white font-semibold rounded-lg bg-red-900 hover:bg-red-300">Submit</button>
+                        class="item px-6 py-2 text-white font-semibold rounded-lg bg-red-900 border hover:border-red-900">Submit</button>
                 </div>
 
             </div>

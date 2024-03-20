@@ -10,9 +10,11 @@ class ParentController extends Controller
 {
     public function index()
     {
-        return view('admin.parents_info');
+        $parents = Parents::all();
+        return view('admin.parents_info', compact('parents'));
     }
-    //
+
+
     public function store(Request $request)
     {
         $request->validate([
@@ -36,5 +38,12 @@ class ParentController extends Controller
         ]);
 
         return redirect('/admin/parentInfo');
+    }
+
+    public function destroy(Parents $parent)
+    {
+        $parent->delete();
+
+        return redirect()->route('parents.index')->with('success', 'Parent deleted successfully');
     }
 }
