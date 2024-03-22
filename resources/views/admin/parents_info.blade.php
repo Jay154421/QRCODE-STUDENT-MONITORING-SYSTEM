@@ -8,8 +8,8 @@
 @include('layouts.admin-nav')
 
 @section('content')
-    <div class=" absolute right-10 w-[980px] border rounded-md shadow-md p-6">
-        <div class="bg-red-400 ">
+    <div class="fixed right-10 top-4 w-[1080px] border rounded-md shadow-md p-6">
+        <div class="bg-red-400">
             <h1 class="text-5xl left-[270px] mb-4 font-inter p-4">Parents List</h1>
             <x-parent-modal />
         </div>
@@ -58,7 +58,8 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">56
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        New Orleans, LA 70112
+                                        <div class="w-[40px] truncate">
+                                            New Orleans, LA 70112</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         09654512123

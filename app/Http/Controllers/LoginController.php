@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,14 +17,12 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-
+        $users = DB::table('parents')->get();
         // login
         if (auth()->guard('admin')->attempt(['username' => $request->username, 'password' => $request->password])) {
             return redirect('/admin/dashboard');
-        } elseif (auth()->guard('parent')->attempt(['username' => $request->username, 'password' => $request->password])) {
+        } elseif (auth()->attempt(['username' => $users, 'password' => $users])) {
             return redirect('/parent/dashboard');
-        } elseif (auth()->guard('parent')->attempt(['username' => $request->username, 'password' => $request->password])) {
-            return redirect('/student/dashboard');
         } else {
             return redirect('/')->with('error', 'Login failed !');
         }

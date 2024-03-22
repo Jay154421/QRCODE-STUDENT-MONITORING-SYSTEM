@@ -8,7 +8,7 @@
 @include('layouts.admin-nav')
 
 @section('content')
-    <div class="fixed right-10 w-[980px] border rounded-md shadow-md p-6">
+    <div class="fixed  right-10 top-4 w-[1080px] border rounded-md shadow-md p-6">
         <div class="bg-red-400 ">
             <h1 class="text-5xl left-[270px] mb-4 font-inter p-4">Students List</h1>
             <x-student-modal />
@@ -26,7 +26,7 @@
                                 <tr>
                                     <th scope="col"
                                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        IDNumber No.</th>
+                                        ID No.</th>
                                     <th scope="col"
                                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         qrcode</th>
@@ -35,7 +35,16 @@
                                         name</th>
                                     <th scope="col"
                                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        gender</th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Age</th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        year</th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        course</th>
                                     <th scope="col"
                                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Address</th>
@@ -55,10 +64,18 @@
                                             alt="qr code"><a href="www.qr-code-generator.com/" border="0"
                                             style="cursor:default" rel="nofollow"></a></td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Jay E. Bodiongan</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Male</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">20</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Prk 12 Saray, Iligan City
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">BSCS</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <div class="w-[40px] truncate">
+                                            Prk 12 Saray, Iligan City</div>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Joseph D. Bodiongan</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <div class="w-[40px] truncate">
+                                            Joseph D. Bodiongan</div>
+                                    </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <button type="submit"
                                             class="item px-2 py-2 text-white font-semibold rounded-lg bg-red-600 hover:bg-red-500">Delete</button>

@@ -30,7 +30,7 @@
                         Schedule</a>
                 </li>
                 <li>
-                    <a href=""
+                    <a href="/"
                         class="block text-xl  py-2 px-3  text-white rounded hover:bg-red-300  md:hover:bg-transparent md:border-0 md:hover:text-red-300  md:p-2">
                         Logout</a>
                 </li>

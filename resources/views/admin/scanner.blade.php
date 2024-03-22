@@ -6,15 +6,15 @@
 
 
 @section('content')
-    <a href="/admin/dashboard" class="absolute right-0 text-4xl">X</a>
+    <a href="/admin/dashboard" class="absolute right-2 text-4xl hover:text-gray-300">X</a>
     <div class="container mx-auto px-4">
         <div class="flex justify-center  min-h-screen top-0">
-            <div class="w-full max-w-lx">
+            <div class="w-full max-w-lx mt-4">
                 <video id="preview" class="w-full h-auto"></video>
             </div>
             <div class="ml-10">
-                <label for="default-input" class="block mb-2 text-xl font-inter text-center  dark:text-white">SCAN QR
-                    CODE</label>
+                <label for="default-input" class="block mt-4 mb-2 text-4xl font-inter text-center  dark:text-white">
+                    SCAN QR CODE</label>
                 <input type="text" id="text" readonly value=""
                     class="bg-gray-50 justify-center border rounded-lg w-full">
                 <table class="min-w-full divide-y divide-gray-200 mt-4">

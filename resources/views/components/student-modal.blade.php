@@ -44,8 +44,8 @@
                     <input type="Text" class="rounded-md shadow-md" placeholder="Id number">
                 </div>
                 <div class="mb-4 flex flex-col ">
-                    <label class="text-sm" for="">YEAR</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Year">
+                    <label class="text-sm" for="">COURSE</label>
+                    <input type="Text" class="rounded-md shadow-md" placeholder="Course">
                 </div>
             </div>
             <div class="flex justify-center">
@@ -54,8 +54,8 @@
                     <input type="Text" class="rounded-md shadow-md" placeholder="qr code">
                 </div>
                 <div class="mb-4 flex flex-col ">
-                    <label class="text-sm" for="">COURSE</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Year">
+                    <label class="text-sm" for="">ADDRESS</label>
+                    <input type="Text" class="rounded-md shadow-md" placeholder="Address">
                 </div>
             </div>
             <div class="flex justify-center">
@@ -64,8 +64,8 @@
                     <input type="Text" class="rounded-md shadow-md" placeholder="Name">
                 </div>
                 <div class="mb-4 flex flex-col ">
-                    <label class="text-sm" for="">ADDRESS</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Address">
+                    <label class="text-sm" for="">GENDER</label>
+                    <input type="Text" class="rounded-md shadow-md" placeholder="Gender">
                 </div>
             </div>
             <div class="flex justify-center">
@@ -84,18 +84,18 @@
                     <input type="Text" class="rounded-md shadow-md" placeholder="Age">
                 </div>
                 <div class="mb-4 flex flex-col ">
-                    <label class="text-sm" for="">GENDER</label>
-                    <input type="Password" class="rounded-md shadow-md" placeholder="Gender">
+                    <label class="text-sm" for="">PASSWORD</label>
+                    <input type="Text" class="rounded-md shadow-md" placeholder="Passsword">
                 </div>
             </div>
             <div class="flex justify-center">
                 <div class="mb-4 mr-[80px] flex flex-col">
-                    <label class="text-sm">USERNAME</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Username">
+                    <label class="text-sm">YEAR</label>
+                    <input type="Text" class="rounded-md shadow-md" placeholder="Year">
                 </div>
-                <div class="mb-4 flex flex-col ">
-                    <label class="text-sm" for="">PASSWORD</label>
-                    <input type="Password" class="rounded-md shadow-md" placeholder="Password">
+                <div class="mb-4 flex flex-col">
+                    <label class="text-sm text-white" for="">PASSWORD</label>
+                    <input type="Password" readonly class="border border-white" none>
                 </div>
             </div>
 
