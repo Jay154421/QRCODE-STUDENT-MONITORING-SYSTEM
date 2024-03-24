@@ -17,10 +17,11 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::guard('admin')->check()) {
+
+        if (auth()->user() && auth()->user()->role == 'admin') {
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect('/load');
     }
 }

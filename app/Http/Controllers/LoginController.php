@@ -17,14 +17,47 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        $users = DB::table('parents')->get();
-        // login
-        if (auth()->guard('admin')->attempt(['username' => $request->username, 'password' => $request->password])) {
-            return redirect('/admin/dashboard');
-        } elseif (auth()->attempt(['username' => $users, 'password' => $users])) {
-            return redirect('/parent/dashboard');
+        $userCredential = $request->only('username', 'password');
+
+        if (Auth::attempt($userCredential)) {
+            return $this->redirectDash($request);
         } else {
             return redirect('/')->with('error', 'Login failed !');
         }
+    }
+
+    public function loadLogin(Request $request)
+    {
+        if (Auth::user()) {
+            return $this->redirectDash($request);
+        }
+        return redirect()->route('login');
+    }
+
+
+    public function redirectDash(Request $request)
+    {
+        // Assuming the user is already authenticated
+        $user = auth()->user(); // Get the authenticated user
+
+        // Check the user's role and redirect accordingly
+        if ($user->role === 'admin') {
+            return redirect('/admin/dashboard');
+        } elseif ($user->role === 'parent') {
+            return redirect('/parent/dashboard');
+        } elseif ($user->role === 'student') {
+            return redirect('/student/dashboard');
+        } else {
+            // Default redirect if the role is not recognized
+            return redirect('/')->with('error', 'Unauthorized access');
+        }
+    }
+
+    public function logout(Request $request)
+    {
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
     }
 }

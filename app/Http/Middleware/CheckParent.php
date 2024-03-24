@@ -18,10 +18,10 @@ class CheckParent
     public function handle(Request $request, Closure $next)
     {
 
-        if (Auth::guard('parent')->check()) {
+        if (auth()->user() && auth()->user()->role == 'parent') {
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect('/load');
     }
 }

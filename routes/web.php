@@ -27,49 +27,54 @@ Route::get('/', function () {
     return view('LoginPage');
 })->name('login');
 
-Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
 //loginAction
+Route::get('/load', [LoginController::class, 'loadLogin']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('login', [LoginController::class, 'loginAction']);
 
 
 // admin account
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-});
-Route::get('/scan', function () {
-    return view('admin.scanner');
-});
-Route::get('/admin/studentInfo', function () {
-    return view('admin.students_info');
-});
-Route::controller(ParentController::class)->group(function () {
-    Route::get('/admin/parentInfo', 'index')->name('parents.index');
-    Route::delete('/admin/{parent}', 'destroy')->name('parents.destroy');
-    Route::post('/admin/parentInfo', 'store');
-});
-
-
-
-
-//parent account
-Route::get('/parent/dashboard', function () {
-    return view('parent.dashboard');
-});
-Route::get('/parent/schedule', function () {
-    return view('parent.schedule');
-});
-Route::get('/parent/profile', function () {
-    return view('parent.profile');
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    });
+    Route::get('/scan', function () {
+        return view('admin.scanner');
+    });
+    Route::get('/admin/studentInfo', function () {
+        return view('admin.students_info');
+    });
+    Route::controller(ParentController::class)->group(function () {
+        Route::get('/admin/parentInfo', 'index')->name('parents.index');
+        Route::delete('/admin/{parent}', 'destroy')->name('parents.destroy');
+        Route::post('/admin/parentInfo', 'store')->name('parents.store');
+    });
 });
 
+
+// parent account
+Route::group(['middleware' => 'parent'], function () {
+    Route::get('/parent/dashboard', function () {
+        return view('parent.dashboard');
+    });
+    Route::get('/parent/schedule', function () {
+        return view('parent.schedule');
+    });
+    Route::get('/parent/profile', function () {
+        return view('parent.profile');
+    });
+});
 
 //student account
-Route::get('/student/dashboard', function () {
-    return view('student.dashboard');
-});
-Route::get('/student/schedule', function () {
-    return view('student.schedule');
-});
-Route::get('/student/profile', function () {
-    return view('student.profile');
+Route::group(['middleware' => 'student'], function () {
+    Route::get('/student/dashboard', function () {
+        return view('student.dashboard');
+    });
+    Route::get('/student/schedule', function () {
+        return view('student.schedule');
+    });
+    Route::get('/student/profile', function () {
+        return view('student.profile');
+    });
 });

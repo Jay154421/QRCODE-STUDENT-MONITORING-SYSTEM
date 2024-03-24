@@ -19,16 +19,20 @@ class Account extends Seeder
         DB::table('users')->insert([
             'username' => 'admin',
             'password' => Hash::make('admin'),
+            'role' => 'admin',
         ]);
 
-        DB::table('parents')->insert([
-            'username' => 'parent',
-            'password' => Hash::make('parent'),
+        DB::table('users')->insert([
+            'username' => 'jay154421',
+            'password' => Hash::make('123456'),
+            'role' => 'parent',
+
         ]);
 
-        DB::table('students')->insert([
+        DB::table('users')->insert([
             'username' => 'student',
             'password' => Hash::make('student'),
+            'role' => 'student',
         ]);
     }
 }

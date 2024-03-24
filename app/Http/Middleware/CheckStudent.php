@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Auth;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,10 @@ class CheckStudent
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (auth()->user() && auth()->user()->role == 'student') {
+            return $next($request);
+        }
+
+        return redirect('/load');
     }
 }

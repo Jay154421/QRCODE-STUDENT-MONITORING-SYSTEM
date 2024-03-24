@@ -25,58 +25,60 @@
                             <thead class="bg-gray-50 dark:bg-gray-700">
                                 <tr>
                                     <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         ID No.</th>
                                     <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         qrcode</th>
                                     <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         name</th>
                                     <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         gender</th>
                                     <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Age</th>
                                     <th scope="col"
                                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         year</th>
                                     <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         course</th>
                                     <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Address</th>
                                     <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Parent</th>
                                     <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Action</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2022-00769</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><img
+                                    <td class="px-2 py-1 whitespace-nowrap text-sm text-gray-500">2022-00769</td>
+                                    <td class="px-2 py-1 whitespace-nowrap text-sm text-gray-500"><img
                                             src="https://chart.googleapis.com/chart?cht=qr&chl=Jay%20E.%20Bodiongan&chs=180x180&choe=UTF-8&chld=L|2"
-                                            alt="qr code"><a href="www.qr-code-generator.com/" border="0"
-                                            style="cursor:default" rel="nofollow"></a></td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Jay E. Bodiongan</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Male</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">20</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">BSCS</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <div class="w-[40px] truncate">
+                                            width="40" alt="qr code"><a href="www.qr-code-generator.com/"
+                                            border="0" style="cursor:default" rel="nofollow"></a></td>
+                                    <td class="px-2 py-1 whitespace-nowrap text-sm text-gray-500">Jay E. Bodiongan</td>
+                                    <td class="px-2 py-1 whitespace-nowrap text-sm text-gray-500">Male</td>
+                                    <td class="px-2 py-1 whitespace-nowrap text-sm text-gray-500">20</td>
+                                    <td class="px-2 py-1 whitespace-nowrap text-sm text-gray-500">2</td>
+                                    <td class="px-2 py-1 whitespace-nowrap text-sm text-gray-500">BSCS</td>
+                                    <td class="px-2 py-1 whitespace-nowrap text-sm text-gray-500">
+                                        <div class="w-[80px] truncate">
                                             Prk 12 Saray, Iligan City</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <div class="w-[40px] truncate">
+                                        <div class="w-[50px] truncate">
                                             Joseph D. Bodiongan</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <button type="submit"
+                                            class="item px-2 py-2 text-white font-semibold rounded-lg bg-red-600 hover:bg-red-500">update</button>
                                         <button type="submit"
                                             class="item px-2 py-2 text-white font-semibold rounded-lg bg-red-600 hover:bg-red-500">Delete</button>
                                     </td>

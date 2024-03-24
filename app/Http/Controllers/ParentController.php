@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use App\Models\Parents;
 use Illuminate\Http\Request;
 
@@ -33,11 +34,15 @@ class ParentController extends Controller
             'age' => $request->age,
             'address' => $request->address,
             'phone' => $request->phone,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/admin/parentInfo');
+        User::create([
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+            'role' => 'parent',
+        ]);
+
+        return redirect()->route('parents.store');
     }
 
     public function destroy(Parents $parent)

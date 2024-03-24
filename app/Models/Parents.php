@@ -12,12 +12,12 @@ class Parents extends Model
 
 
     protected $fillable = [
-        // 'name',
-        // 'gender',
-        // 'age',
-        // 'address',
-        // 'phone',
-        'username',
-        'password'
+        'name',
+        'gender',
+        'age',
+        'address',
+        'phone',
+        // 'username',
+        // 'password'
     ];
 }

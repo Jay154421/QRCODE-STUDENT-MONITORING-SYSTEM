@@ -46,7 +46,7 @@
                 </a>
             </li>
         </ul>
-        <a href="{{ route('admin.logout') }}"
+        <a href="{{ route('logout') }}"
             class="absolute bottom-4 left-3 flex items-center p-2 w-32 bg-gray-100 rounded-xl hover:bg-red-300">
             <img src="https://cdn-icons-png.flaticon.com/128/1716/1716274.png" class="w-[25px] h-[25px] "
                 alt="">
