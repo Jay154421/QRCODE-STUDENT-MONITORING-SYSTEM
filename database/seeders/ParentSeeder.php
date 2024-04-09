@@ -28,8 +28,8 @@ class ParentSeeder extends Seeder
             $addUser->age = $faker->randomNumber(2, 18, 65);
             $addUser->address = $faker->address;
             $addUser->phone = $faker->phoneNumber;
-            $addUser->username = $faker->username;
-            $addUser->password = Hash::make("password");
+            // $addUser->username = $faker->username;
+            // $addUser->password = Hash::make("password");
             $addUser->save();
         }
     }
