@@ -10,23 +10,23 @@
 @section('content')
     <div class=" mx-24 my-8 flex flex-row items-center">
         <div class="text-xl font-bold w-14">Name</div>
-        <div class="text-md pl-28">Issac A. Edge</div>
+        <div class="text-md pl-28">{{ $parent->name }}</div>
     </div>
     <div class="mx-24 my-8 flex flex-row items-center">
         <div class="text-xl font-bold w-14">Gender</div>
-        <div class="text-md pl-28">Male</div>
+        <div class="text-md pl-28">{{ $parent->gender }}</div>
     </div>
     <div class=" mx-24 my-8 flex flex-row items-center">
         <div class=" text-xl font-bold w-14">Age</div>
-        <div class="text-md pl-28">59</div>
+        <div class="text-md pl-28">{{ $parent->age }}</div>
     </div>
     <div class=" mx-24 my-8 flex flex-row items-center">
         <div class=" text-xl font-bold w-14">Address</div>
-        <div class="text-md pl-28">2640 Brown Street Walnut Creek, CA 94596</div>
+        <div class="text-md pl-28">{{ $parent->address }}</div>
     </div>
     <div class=" mx-24 my-8 flex flex-row items-center">
         <div class=" text-xl font-bold w-14">Phone</div>
-        <div class="text-md pl-28">09263626498</div>
+        <div class="text-md pl-28">{{ $parent->phone }}</div>
     </div>
     <div class=" mx-24 mt-5">
         <x-changepassword-modal />

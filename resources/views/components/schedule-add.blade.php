@@ -1,11 +1,9 @@
 <!-- Modal toggle -->
-
-
 <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-    class=" modal-open absolute right-7 top-7 text-white text-md border rounded-md px-4 py-1 bg-yellow-300 hover:bg-white hover:text-black">Add
+    class=" modal-open text-white text-md border rounded-md px-4 py-1 bg-yellow-300 hover:bg-white hover:text-black">Add
     New</button>
 
-<form action="/admin/parentInfo" method="POST">
+<form action="{{ route('schedule.store') }}" method="POST">
     @csrf
     <!--Modal-->
     <div
@@ -29,7 +27,7 @@
             <div class="modal-content py-4 text-left px-6">
                 <!--Title-->
                 <div class="flex justify-between items-center pb-3">
-                    <p class="tracking-wider text-4xl">New Parent</p>
+                    <p class="tracking-wider text-4xl">Schedule</p>
                     <div class="modal-close cursor-pointer z-50">
                         <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18"
                             height="18" viewBox="0 0 18 18">
@@ -42,54 +40,27 @@
                 <div class="bg-gray-600"></div>
 
                 <!--Body-->
-                <div class="mx-8 mb-2 flex flex-col justify-center relative">
-                    <label class="text-sm">NAME</label>
-                    <input type="Text" name="name" class="rounded-md shadow-md" placeholder="Name">
-                    @error('name')
-                        <div class="text-red-600 text-sm">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mx-8 mb-2 flex flex-col justify-center">
-                    <label class="text-sm">GENDER</label>
-                    <input type="Text" name="gender" class="rounded-md shadow-md" placeholder="Gender">
-                    @error('gender')
-                        <div class="text-red-600 text-sm">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mx-8 mb-2 flex flex-col justify-center">
-                    <label class="text-sm">AGE</label>
-                    <input type="Text" name="age" class="rounded-md shadow-md" placeholder="Age">
-                    @error('age')
-                        <div class="text-red-600 text-sm">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mx-8 mb-2 flex flex-col justify-center">
-                    <label class="text-sm">ADDRESS</label>
-                    <input type="Text" name="address" class="rounded-md shadow-md" placeholder="Address">
-                    @error('address')
-                        <div class="text-red-600 text-sm">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mx-8 mb-2 flex flex-col justify-center">
-                    <label class="text-sm">PHONE NUMBER</label>
-                    <input type="Text" name="phone" class="rounded-md shadow-md" placeholder="Phone Number">
-                    @error('phone')
-                        <div class="text-red-600 text-sm">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mx-8 mb-2 flex flex-col justify-center">
-                    <label class="text-sm">USERNAME</label>
-                    <input type="Text" name="username" class="rounded-md shadow-md" placeholder="Username">
-                    @error('username')
-                        <div class="text-red-600 text-sm">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mx-8 mb-2 flex flex-col justify-center">
-                    <label class="text-sm">PASSWORD</label>
-                    <input type="password" name="password" class="rounded-md shadow-md" placeholder="Password">
-                    @error('password')
-                        <div class="text-red-600 text-sm">{{ $message }}</div>
-                    @enderror
+                <div class="">
+                    <div class="mx-8 mb-4 flex flex-col justify-center">
+                        <label class=" text-sm">SUBJCODE</label>
+                        <input type="Text" name="subjcode" class="rounded-md shadow-md" placeholder="Subjcode">
+                    </div>
+                    <div class="mx-8 mb-4 flex flex-col justify-center">
+                        <label class="text-sm">SECTION</label>
+                        <input type="Text" name="section" class="rounded-md shadow-md" placeholder="Section">
+                    </div>
+                    <div class="mx-8 mb-4 flex flex-col justify-center">
+                        <label class="text-sm">DESCRIPTION</label>
+                        <input type="Text" name="description" class="rounded-md shadow-md" placeholder="Description">
+                    </div>
+                    <div class="mx-8 mb-4 flex flex-col justify-center">
+                        <label class="text-sm">SCHEDULE</label>
+                        <input type="Text" name="schedule" class="rounded-md shadow-md" placeholder="Schedule">
+                    </div>
+                    <div class="mx-8 mb-4 flex flex-col justify-center">
+                        <label class="text-sm">UNIT</label>
+                        <input type="Text" name="unit" class="rounded-md shadow-md" placeholder="Unit">
+                    </div>
                 </div>
 
                 <!--Footer-->

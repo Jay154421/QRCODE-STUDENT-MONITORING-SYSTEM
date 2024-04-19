@@ -11,7 +11,7 @@ class ParentController extends Controller
 {
     public function index()
     {
-        $parents = Parents::all();
+        $parents = Parents::orderBy('created_at', 'desc')->get();
         return view('admin.parents_info', compact('parents'));
     }
 
@@ -28,7 +28,7 @@ class ParentController extends Controller
             'password' => 'required',
         ]);
 
-        Parents::create([
+        $parent = Parents::create([
             'name' => $request->name,
             'gender' => $request->gender,
             'age' => $request->age,
@@ -37,6 +37,7 @@ class ParentController extends Controller
         ]);
 
         User::create([
+            'parent_id' => $parent->id,
             'username' => $request->username,
             'password' => Hash::make($request->password),
             'role' => 'parent',
@@ -45,10 +46,24 @@ class ParentController extends Controller
         return redirect()->route('parents.store');
     }
 
-    public function destroy(Parents $parent)
+    public function update(Request $request, $id)
     {
+        $parent = Parents::find($id);
+        $parent->update($request->all());
+        return redirect()->route('parents.index');
+    }
+
+    public function destroy($id)
+    {
+        $parent = Parents::find($id);
+        $user = User::where('parent_id', $id);
+
+        if ($user) {
+            $user->delete();
+        }
+
         $parent->delete();
 
-        return redirect()->route('parents.index')->with('success', 'Parent deleted successfully');
+        return redirect()->route('parents.index');
     }
 }

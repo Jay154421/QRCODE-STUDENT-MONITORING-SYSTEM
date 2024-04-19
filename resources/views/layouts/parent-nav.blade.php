@@ -1,6 +1,6 @@
 <nav class="mb-4 bg-red-900 border-gray-200 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/parent/dashboard" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="{{ route('parent.dashboard') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="{{ asset('image/Logo.PNG') }}" alt="Logo" width="80">
             <span
                 class="self-center text-4xl text-white font-semibold whitespace-nowrap hover:text-red-300 dark:text-white">
@@ -20,12 +20,12 @@
             <ul
                 class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-red-900 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
-                    <a href="/parent/profile"
+                    <a href="{{ route('parent.profile', ['id' => $parent->id ?? 'default']) }}"
                         class="block text-xl  py-2 px-3  text-white rounded hover:bg-red-300 md:hover:bg-transparent md:border-0 md:hover:text-red-300 md:p-2"
                         aria-current="page">Profile</a>
                 </li>
                 <li>
-                    <a href="/parent/schedule"
+                    <a href="{{ route('parent.schedule', ['parentId' => $parent->id]) }}"
                         class="block text-xl  py-2 px-3  text-white rounded hover:bg-red-300 md:hover:bg-transparent md:border-0 md:hover:text-red-300  md:p-2  ">
                         Schedule</a>
                 </li>

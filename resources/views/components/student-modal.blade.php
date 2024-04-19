@@ -7,10 +7,10 @@
 
 
 <!--Modal-->
-<div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+<div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50 ">
     <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
 
-    <div class="modal-container bg-white w-[750px] rounded shadow-lg z-50 overflow-y-auto">
+    <div class="modal-container bg-white w-[550px]  rounded shadow-lg z-50 overflow-y-auto">
         <div
             class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50 ">
             <svg class="fill-current hover:text-gray-500 text-white" xmlns="http://www.w3.org/2000/svg" width="18"
@@ -36,75 +36,107 @@
                 </div>
             </div>
             <br>
-
-            <!--Body-->
-            <div class=" modal-body flex justify-center mt-4">
-                <div class="mb-4 mr-[80px] flex flex-col">
-                    <label class="text-sm">ID NUMBER</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Id number">
+            <form action="{{ route('students.store') }}" method="POST">
+                @csrf
+                <!--Body-->
+                <div class=" modal-body flex flex-col items-center mt-4">
+                    <div class="mb-2 flex flex-row">
+                        <div class="mx-4">
+                            <div class="text-sm">ID NUMBER</div>
+                            <input type="Text" name="idnumber" class="rounded-md shadow-md border-gray-400"
+                                placeholder="id number">
+                            @error('idnumber')
+                                <div class="text-red-600 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="mx-4">
+                            <div class="text-sm">NAME</div>
+                            <input type="Text" name="name" class="rounded-md shadow-md border-gray-400"
+                                placeholder="Name">
+                            @error('name')
+                                <div class="text-red-600 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="mb-2 flex flex-row">
+                        <div class="mx-4">
+                            <div class="text-sm">GENDER</div>
+                            <input type="Text" name="gender" class=" rounded-md shadow-md border-gray-400"
+                                placeholder="Gender">
+                            @error('gender')
+                                <div class="text-red-600 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="mx-4">
+                            <div class="text-sm">AGE</div>
+                            <input type="Text" name="age" class=" rounded-md shadow-md border-gray-400"
+                                placeholder="Age">
+                            @error('age')
+                                <div class="text-red-600 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="mb-2 flex flex-row">
+                        <div class="mx-4">
+                            <div class="text-sm">YEAR</div>
+                            <input type="Text" name="year" class=" rounded-md shadow-md border-gray-400"
+                                placeholder="Year">
+                            @error('year')
+                                <div class="text-red-600 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="mx-4">
+                            <div class="text-sm">COURSE</div>
+                            <input type="Text" name="course" class=" rounded-md shadow-md border-gray-400"
+                                placeholder="Course">
+                            @error('course')
+                                <div class="text-red-600 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="mb-2 flex flex-row">
+                        <div class="mx-4">
+                            <div class="text-sm">ADDRESS</div>
+                            <input type="Text" name="address" class=" rounded-md shadow-md border-gray-400"
+                                placeholder="Address">
+                            @error('address')
+                                <div class="text-red-600 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="mx-4">
+                            <div class="text-sm">PARENT</div>
+                            <input type="Text" name="parent" class=" rounded-md shadow-md border-gray-400"
+                                placeholder="Parent">
+                            @error('parent')
+                                <div class="text-red-600 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="mb-2 flex flex-row">
+                        <div class="mx-4">
+                            <div class="text-sm">USERNAME</div>
+                            <input type="Text" name="username" class=" rounded-md shadow-md border-gray-400"
+                                placeholder="Username">
+                            @error('username')
+                                <div class="text-red-600 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="mx-4">
+                            <div class="text-sm">PASSWORD</div>
+                            <input type="password" name="password" class=" rounded-md shadow-md border-gray-400"
+                                placeholder="Password">
+                            @error('password')
+                                <div class="text-red-600 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-4 flex flex-col ">
-                    <label class="text-sm" for="">COURSE</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Course">
+                <!--Footer-->
+                <div class="flex justify-center mt-2">
+                    <button type="submit" name="submit"
+                        class="item px-6 py-2 text-white font-semibold rounded-lg bg-red-900 border hover:border-red-900">Submit</button>
                 </div>
-            </div>
-            <div class="flex justify-center">
-                <div class="mb-4 mr-[80px] flex flex-col">
-                    <label class="text-sm">QR CODE</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="qr code">
-                </div>
-                <div class="mb-4 flex flex-col ">
-                    <label class="text-sm" for="">ADDRESS</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Address">
-                </div>
-            </div>
-            <div class="flex justify-center">
-                <div class="mb-4 mr-[80px] flex flex-col">
-                    <label class="text-sm">NAME</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Name">
-                </div>
-                <div class="mb-4 flex flex-col ">
-                    <label class="text-sm" for="">GENDER</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Gender">
-                </div>
-            </div>
-            <div class="flex justify-center">
-                <div class="mb-4 mr-[80px] flex flex-col">
-                    <label class="text-sm">PARENT</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Parent Name">
-                </div>
-                <div class="mb-4 flex flex-col ">
-                    <label class="text-sm" for="">USERNAME</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Username">
-                </div>
-            </div>
-            <div class="flex justify-center">
-                <div class="mb-4 mr-[80px] flex flex-col">
-                    <label class="text-sm">AGE</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Age">
-                </div>
-                <div class="mb-4 flex flex-col ">
-                    <label class="text-sm" for="">PASSWORD</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Passsword">
-                </div>
-            </div>
-            <div class="flex justify-center">
-                <div class="mb-4 mr-[80px] flex flex-col">
-                    <label class="text-sm">YEAR</label>
-                    <input type="Text" class="rounded-md shadow-md" placeholder="Year">
-                </div>
-                <div class="mb-4 flex flex-col">
-                    <label class="text-sm text-white" for="">PASSWORD</label>
-                    <input type="Password" readonly class="border border-white" none>
-                </div>
-            </div>
-
-
-            <!--Footer-->
-            <div class="flex justify-center pt-4">
-                <button
-                    class="item px-6 py-2 text-white font-semibold rounded-lg bg-red-900 border hover:border-red-900">Submit</button>
-            </div>
+            </form>
 
         </div>
     </div>

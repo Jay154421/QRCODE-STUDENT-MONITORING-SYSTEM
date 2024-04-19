@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\Parents;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -20,16 +21,20 @@ class ParentSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 1; $i <= 15; $i++) {
 
             $addUser = new Parents();
+            $addAcc = new User();
             $addUser->name = $faker->name;
             $addUser->gender = $faker->randomElement(['male', 'female']);
             $addUser->age = $faker->randomNumber(2, 18, 65);
             $addUser->address = $faker->address;
             $addUser->phone = $faker->phoneNumber;
-            // $addUser->username = $faker->username;
-            // $addUser->password = Hash::make("password");
+            $addAcc->parent_id = $i;
+            $addAcc->username = $faker->username;
+            $addAcc->password = Hash::make("password");
+            $addAcc->role = 'parent';
+            $addAcc->save();
             $addUser->save();
         }
     }

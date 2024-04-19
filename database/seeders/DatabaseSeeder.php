@@ -22,12 +22,10 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
-        // $this->call(Account::class);
-        // $this->call(ParentSeeder::class);
         $this->call([
             Account::class,
-            ParentSeeder::class
+            ParentSeeder::class,
+            StudentSeeder::class
         ]);
-        // StudentSeeder::class
     }
 }

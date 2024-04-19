@@ -23,8 +23,8 @@ class Account extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'username' => 'jay154421',
-            'password' => Hash::make('123456'),
+            'username' => 'parent',
+            'password' => Hash::make('parent'),
             'role' => 'parent',
 
         ]);

@@ -34,11 +34,12 @@
                             <td>{{ $parent->name }}</td>
                             <td>{{ $parent->gender }}</td>
                             <td>{{ $parent->age }}</td>
-                            <td>{{ str_limit($parent->address, 20) }}</td>
+                            <td>{{ str_limit($parent->address, 10) }}</td>
                             <td>{{ str_limit($parent->phone, 20) }}</td>
                             <td>{{ $parent->created_at->format('d/m/Y') }}</td>
-                            <td>delete</td>
-
+                            <td> <x-parent-update-modal :parent="$parent" />
+                                <x-parent-delete-modal :parent="$parent" />
+                            </td>
                         </tr>
                     @endforeach
                 <tfoot>

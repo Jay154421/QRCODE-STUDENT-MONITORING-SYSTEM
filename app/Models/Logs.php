@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Logs extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'id_student', 'idnumber');
+    }
 }

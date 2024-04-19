@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->string('parent_id')->nullable();
             $table->string('student_id')->nullable();
-            $table->string("username")->unique();
-            $table->string("password");
-            $table->enum("role", ['admin', 'student', 'parent'])->default('parent');
-            $table->rememberToken();
-
+            $table->string('subjcode');
+            $table->string('section');
+            $table->string('description');
+            $table->string('schedule');
+            $table->string('unit');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('schedules');
     }
 };

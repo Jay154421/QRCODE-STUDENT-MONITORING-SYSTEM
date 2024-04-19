@@ -10,7 +10,17 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-center  min-h-screen top-0">
             <div class="w-full max-w-lx mt-4">
+                @if (session()->has('error'))
+                    <p class="text-red-500">{{ session('error') }}</p>
+                @endif
+                @if (session()->has('success'))
+                    <p class="text-green-500">{{ session('success') }}</p>
+                @endif
                 <video id="preview" class="w-full h-auto"></video>
+                <form action="{{ route('scan') }}" method="POST" id="form">
+                    @csrf
+                    <input type="hidden" name="id_student" id="id_student">
+                </form>
             </div>
             <div class="ml-10">
                 <label for="default-input" class="block mt-4 mb-2 text-4xl font-inter text-center  dark:text-white">
@@ -35,20 +45,22 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                2024/01/12
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                JAY E. BODIONGAN
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                7:30AM
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                9:30AM
-                            </td>
-                        </tr>
+                        @foreach ($Records as $record)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ $record->tanngal }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ $record->student->name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ $record->login_time }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ $record->logout_time }}
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -61,6 +73,8 @@
         });
         scanner.addListener('scan', function(c) {
             document.getElementById('text').value = c;
+            document.getElementById('id_student').value = c;
+            document.getElementById('form').submit();
         });
         Instascan.Camera.getCameras().then(function(cameras) {
             if (cameras.length > 0) {
