@@ -14,7 +14,7 @@
             <h1 class="text-5xl left-[270px] mb-4 font-inter p-4">Students List</h1>
 
             {{-- Add student --}}
-            <x-student-modal />
+            <x-student-add />
         </div>
         <div class="flex flex-col">
             <table id="example" class="display nowrap" style="width:100%">
@@ -45,8 +45,8 @@
                             <td>{{ str_limit($student->parent, 10) }}</td> --}}
                             <td>{{ $student->created_at->format('d/m/Y') }}</td>
                             <td>
-                                <x-student-update-modal :student="$student" />
-                                <x-student-delete-modal :student="$student" />
+                                <x-student-update :student="$student" />
+                                <x-student-delete :student="$student" />
                             </td>
                         </tr>
                     @endforeach

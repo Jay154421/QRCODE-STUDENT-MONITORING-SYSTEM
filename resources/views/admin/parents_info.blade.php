@@ -12,7 +12,7 @@
     <div class="fixed right-10 top-4 w-[1080px] border rounded-md shadow-md p-6 overflow-auto max-h-lvh ">
         <div class="bg-red-400">
             <h1 class="text-5xl left-[270px] mb-4 font-inter p-4">Parents List</h1>
-            <x-parent-modal />
+            <x-parent-add />
         </div>
         <div class="flex flex-col">
             <table id="example" class="display nowrap" style="width:100%">
@@ -38,8 +38,8 @@
                             <td>{{ str_limit($parent->address, 10) }}</td>
                             <td>{{ str_limit($parent->phone, 20) }}</td>
                             <td>{{ $parent->created_at->format('d/m/Y') }}</td>
-                            <td> <x-parent-update-modal :parent="$parent" />
-                                <x-parent-delete-modal :parent="$parent" />
+                            <td> <x-parent-update :parent="$parent" />
+                                <x-parent-delete :parent="$parent" />
                             </td>
                         </tr>
                     @endforeach

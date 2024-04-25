@@ -30,6 +30,6 @@
         <div class="text-md pl-28">{{ $parent->phone }}</div>
     </div>
     <div class=" mx-24 mt-5">
-        <x-parent-changepassword-modal />
+        <x-parent-changepassword />
     </div>
 @endsection

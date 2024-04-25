@@ -6,7 +6,7 @@
 
 <div id="updateModal{{ $student->id }}"
     class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4">
-    <div class="relative top-10 mx-auto shadow-xl rounded-md bg-white max-w-md">
+    <div class="relative top-5 mx-auto shadow-xl rounded-md bg-white w-[600px]">
         <div class="flex justify-end p-2">
             <button onclick="closeModal('updateModal{{ $student->id }}')" type="button"
                 class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
@@ -22,17 +22,19 @@
             @method('PUT')
             <div class="flex flex-col">
                 <div class="mx-4">
-                    <h3 class="text-xl font-normal text-gray-500 mt-4 mb-4">Update Student Information</h3>
+                    <h3 class="text-2xl font-normal text-gray-500 mt-4 mb-4">Update Student Information</h3>
                 </div>
-                <div class="mx-4 mb-2">
-                    <p class="text-md">Id number</p>
-                    <input type="text" name="idnumber" value="{{ $student->idnumber }}"
-                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
-                </div>
-                <div class="mx-4 mb-2">
-                    <p class="text-md">Name</p>
-                    <input type="text" name="name" value="{{ $student->name }}"
-                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                <div class="flex flex-row justify-between">
+                    <div class="mx-4 mb-2">
+                        <p class="text-md">Id number</p>
+                        <input type="text" name="idnumber" value="{{ $student->idnumber }}"
+                            class="w-[270px] px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                    </div>
+                    <div class="mx-4 mb-2">
+                        <p class="text-md">Name</p>
+                        <input type="text" name="name" value="{{ $student->name }}"
+                            class="w-[270px] px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                    </div>
                 </div>
                 <div class="mx-4 mb-2">
                     <p class="text-md">Gender</p>
@@ -64,7 +66,7 @@
                     <input type="text" name="parent" value="{{ $student->parent }}"
                         class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
                 </div>
-                <div class="flex justify-center my-2">
+                <div class="flex justify-center mb-2">
                     <button type="submit"
                         class="mt-4 text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                         Update

@@ -27,7 +27,7 @@
         <div class="modal-content py-4 text-left px-6  ">
             <!--Title-->
             <div class="flex justify-between items-center pb-3">
-                <p class="text-4xl font-bold">NEW STUDENT</p>
+                <p class="tracking-wider text-4xl">NEW STUDENT</p>
                 <div class="modal-close cursor-pointer z-50">
                     <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18"
                         height="18" viewBox="0 0 18 18">

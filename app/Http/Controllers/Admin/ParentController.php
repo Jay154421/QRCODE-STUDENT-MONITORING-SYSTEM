@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Parents;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ParentController extends Controller
 {

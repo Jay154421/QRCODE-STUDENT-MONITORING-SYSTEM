@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Parents;
 use App\Models\Student;
 use App\Models\Logs;
+use App\Http\Controllers\Controller;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;

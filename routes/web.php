@@ -1,14 +1,12 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\ParentController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\StudentAccountController;
-use App\Http\Controllers\ParentAccountController;
-use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ParentController;
+use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\Student\StudentAccountController;
+use App\Http\Controllers\Student\ScheduleController;
+use App\Http\Controllers\Parent\ParentAccountController;
 use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 

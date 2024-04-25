@@ -22,7 +22,8 @@
             @method('PUT')
             <div class="flex flex-col">
                 <div class="mx-4">
-                    <h3 class="text-xl font-normal text-gray-500 mt-4 mb-4">Update Parent Information</h3>
+                    <h3 class="text-2xl tracking-wide font-normal text-gray-500 mt-4 mb-4">Update Parent Information
+                    </h3>
                 </div>
                 <div class="mx-4 mb-2">
                     <p class="text-md">Name</p>

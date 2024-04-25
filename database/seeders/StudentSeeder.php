@@ -32,6 +32,7 @@ class StudentSeeder extends Seeder
             $addUser->year = $faker->numberBetween(1, 4);
             $addUser->course = 'BSCS';
             $addUser->parent = $faker->name;
+            $addUser->parent_id = $i;
             // Assuming you want to generate a unique ID number for each student
             $addUser->idnumber = str_pad($i, 9, '2022-0000', STR_PAD_LEFT);
             $addAcc->student_id = $i;

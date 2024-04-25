@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Parent;
 
 use App\Models\Schedule;
 use App\Models\Parents;
@@ -42,10 +42,8 @@ class ParentAccountController extends Controller
     public function showSchedule()
     {
         $parentId = session('parent_id');
-
         $parent = Parents::findOrFail($parentId);
         $studentId = $parent->students->first()->parent_id;
-
         $schedules = Schedule::where('student_id', $studentId)->get();
 
         return view('parent.schedule', compact('schedules'));

@@ -42,6 +42,6 @@
         <div class="text-md pl-28">{{ $student->parent }}</div>
     </div>
     <div class=" mx-24 mt-5">
-        <x-student-changepassword-modal />
+        <x-student-changepassword />
     </div>
 @endsection
