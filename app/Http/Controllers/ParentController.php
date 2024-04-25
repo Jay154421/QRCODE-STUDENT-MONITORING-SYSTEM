@@ -43,14 +43,14 @@ class ParentController extends Controller
             'role' => 'parent',
         ]);
 
-        return redirect()->route('parents.store');
+        return back()->with('success', 'Parent successfully created');
     }
 
     public function update(Request $request, $id)
     {
         $parent = Parents::find($id);
         $parent->update($request->all());
-        return redirect()->route('parents.index');
+        return back()->with('success', 'Parent successfully updated');
     }
 
     public function destroy($id)
@@ -64,6 +64,6 @@ class ParentController extends Controller
 
         $parent->delete();
 
-        return redirect()->route('parents.index');
+        return back()->with('success', 'Parent successfully deleted');
     }
 }

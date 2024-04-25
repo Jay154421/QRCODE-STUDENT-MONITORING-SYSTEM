@@ -8,6 +8,7 @@
 @include('layouts.admin-nav')
 
 @section('content')
+    @include('error.parent')
     <div class="fixed right-10 top-4 w-[1080px] border rounded-md shadow-md p-6 overflow-auto max-h-lvh ">
         <div class="bg-red-400">
             <h1 class="text-5xl left-[270px] mb-4 font-inter p-4">Parents List</h1>

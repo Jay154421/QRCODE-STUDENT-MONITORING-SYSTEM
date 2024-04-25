@@ -8,6 +8,7 @@
 @include('layouts.student-nav')
 
 @section('content')
+    @include('error.schedule')
     <div class="relative overflow-x-auto">
         <div class="flex flex-shrink justify-center">
             <p class="tracking-widest relative text-4xl font-bold ">SCHEDULE</p>
@@ -58,7 +59,10 @@
                         <td class="px-6 py-4">
                             {{ $schedule->unit }}
                         </td>
-                        <td><x-schedule-delete :schedule="$schedule" /></td>
+                        <td>
+                            <x-schedule-update :schedule="$schedule" />
+                            <x-schedule-delete :schedule="$schedule" />
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

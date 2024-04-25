@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
             $table->string('id_student');
-            $table->date('tanngal');
+            $table->date('date');
             $table->timestamps();
         });
     }

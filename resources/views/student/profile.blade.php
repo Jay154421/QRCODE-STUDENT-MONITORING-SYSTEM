@@ -8,6 +8,7 @@
 @include('layouts.student-nav')
 
 @section('content')
+    @include('error.changepassword')
     <div class=" mx-24 w-28  flex flex-row items-center">
         <img src="https://chart.googleapis.com/chart?cht=qr&chl=Jay%20E.%20Bodiongan&chs=180x180&choe=UTF-8&chld=L|2"
             alt="qr code"><a href="www.qr-code-generator.com/" border="0" style="cursor:default" rel="nofollow"></a>
@@ -41,6 +42,6 @@
         <div class="text-md pl-28">{{ $student->parent }}</div>
     </div>
     <div class=" mx-24 mt-5">
-        <x-changepassword-modal />
+        <x-student-changepassword-modal />
     </div>
 @endsection

@@ -20,4 +20,9 @@ class Parents extends Model
         // 'username',
         // 'password'
     ];
+
+    public function students()
+    {
+        return $this->hasMany(Student::class, 'parent_id');
+    }
 }

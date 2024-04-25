@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             Account::class,
-            ParentSeeder::class,
-            StudentSeeder::class
+            // ParentSeeder::class,
+            // StudentSeeder::class
         ]);
     }
 }

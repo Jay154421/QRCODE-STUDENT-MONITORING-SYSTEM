@@ -21,7 +21,7 @@
                 class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-red-900 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
 
-                    <a href="{{ route('student.profile', ['id' => $student->id ?? 'default']) }}"
+                    <a href="{{ route('student.profile') }}"
                         class="block text-xl py-2 px-3 text-white rounded hover:bg-red-300 md:hover:bg-transparent md:border-0 md:hover:text-red-300 md:p-2"
                         aria-current="page">Profile</a>
                 </li>

@@ -25,8 +25,9 @@ use Illuminate\Support\Facades\Route;
 
 //test
 Route::get('/test', [testController::class, 'showChildren']);
+Route::post('/test', [testController::class, 'changePassword'])->name('password');
 
-//loginPage
+//LoginPage
 Route::get('/', function () {
     return view('LoginPage');
 })->name('login');
@@ -39,7 +40,7 @@ Route::post('login', [LoginController::class, 'loginAction']);
 
 
 
-// admin account
+// Admin account
 Route::group(['middleware' => 'admin'], function () {
 
     Route::get('/admin/dashboard', [AdminController::class, 'index']);
@@ -64,22 +65,22 @@ Route::group(['middleware' => 'admin'], function () {
 });
 
 
-// parent account
+// Parent account
 Route::group(['middleware' => 'parent'], function () {
-    Route::get('/parent/dashboard', [ParentAccountController::class, 'showDashboard'])->name('parent.dashboard');
-    Route::get('/parent/schedule/{parentId}', [ParentAccountController::class, 'showSchedule'])->name('parent.schedule');
-    Route::get('/profile/profile/{id}', [ParentAccountController::class, 'showProfile'])->name('parent.profile');
+    Route::post('/parent/change-password', [ParentAccountController::class, 'changePassword'])->name('parent.change-password');
+    Route::get('/parent/dashboard/', [ParentAccountController::class, 'showDashboard'])->name('parent.dashboard');
+    Route::get('/parent/schedule/', [ParentAccountController::class, 'showSchedule'])->name('parent.schedule');
+    Route::get('/profile/profile', [ParentAccountController::class, 'showProfile'])->name('parent.profile');
 });
 
-//student account
+//Student account
 Route::group(['middleware' => 'student'], function () {
-    Route::get('/student/dashboard', function () {
-        return view('student.dashboard');
-    });
+    Route::get('/student/dashboard', [StudentAccountController::class, 'showDashboard']);
+    Route::get('/student/profile', [StudentAccountController::class, 'showProfile'])->name('student.profile');
+    Route::post('/student/change-password', [StudentAccountController::class, 'changePassword'])->name('student.change-password');
 
     Route::get('/student/schedule', [ScheduleController::class, 'index'])->name('schedule');
     Route::post('/student/schedule', [ScheduleController::class, 'store'])->name('schedule.store');
+    Route::put('/student/schedule/{schedule}', [ScheduleController::class, 'update'])->name('schedule.update');
     Route::delete('/student/schedule/{schedule}', [ScheduleController::class, 'destroy'])->name('schedule.destroy');
-
-    Route::get('/student/profile/{id}', [StudentAccountController::class, 'showProfile'])->name('student.profile');
 });

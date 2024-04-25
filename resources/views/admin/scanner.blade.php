@@ -9,18 +9,18 @@
     <a href="/admin/dashboard" class="absolute right-2 text-4xl hover:text-gray-300">X</a>
     <div class="container mx-auto px-4">
         <div class="flex justify-center  min-h-screen top-0">
-            <div class="w-full max-w-lx mt-4">
-                @if (session()->has('error'))
-                    <p class="text-red-500">{{ session('error') }}</p>
-                @endif
-                @if (session()->has('success'))
-                    <p class="text-green-500">{{ session('success') }}</p>
-                @endif
+            <div class="w-[850px] max-w-lx mt-4">
                 <video id="preview" class="w-full h-auto"></video>
                 <form action="{{ route('scan') }}" method="POST" id="form">
                     @csrf
                     <input type="hidden" name="id_student" id="id_student">
                 </form>
+                @if (session()->has('error'))
+                    <p class="mt-5 text-md text-red-500">{{ session('error') }}</p>
+                @endif
+                @if (session()->has('success'))
+                    <p class="mt-5 text-md text-green-500">{{ session('success') }}</p>
+                @endif
             </div>
             <div class="ml-10">
                 <label for="default-input" class="block mt-4 mb-2 text-4xl font-inter text-center  dark:text-white">
@@ -48,7 +48,7 @@
                         @foreach ($Records as $record)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $record->tanngal }}
+                                    {{ $record->date }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     {{ $record->student->name }}

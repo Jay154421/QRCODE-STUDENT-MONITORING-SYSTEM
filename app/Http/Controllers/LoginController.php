@@ -50,7 +50,6 @@ class LoginController extends Controller
             session(['parent_id' => $user->parent_id]);
 
             return redirect('/parent/dashboard');
-            // dd(session(['parent_id' => $user->parent_id]));
         } elseif ($user->role === 'student') {
 
             session(['student_id' => $user->student_id]);

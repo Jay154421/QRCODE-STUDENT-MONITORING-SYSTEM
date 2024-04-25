@@ -37,7 +37,14 @@ class ScheduleController extends Controller
             'unit' => $request->unit
         ]);
 
-        return redirect()->route('schedule.store');
+        return redirect()->route('schedule.store')->with("success", 'Schedule successfully created');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $schedules = Schedule::find($id);
+        $schedules->update($request->all());
+        return back()->with('success', 'Schedule Successfully Updated');
     }
 
     public function destroy($id)
@@ -45,6 +52,6 @@ class ScheduleController extends Controller
         $schedule = Schedule::find($id);
         $schedule->delete();
 
-        return redirect()->route('schedule');
+        return redirect()->route('schedule')->with('success', 'Schedule successfully deleted');
     }
 }

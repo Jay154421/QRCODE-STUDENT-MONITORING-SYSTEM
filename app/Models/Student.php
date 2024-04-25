@@ -19,6 +19,7 @@ class Student extends Model
         'course',
         'address',
         'parent',
+        'parent_id'
         // 'username',
         // 'password'
     ];
@@ -31,9 +32,8 @@ class Student extends Model
     // In your Student model
     public function parent()
     {
-        return $this->belongsTo(Parents::class);
+        return $this->belongsTo(Parent::class, 'parent_id');
     }
-
 
     public function schedule()
     {

@@ -11,6 +11,7 @@ class Logs extends Model
 
     protected $guarded = ['id'];
 
+
     public function student()
     {
         return $this->belongsTo(Student::class, 'id_student', 'idnumber');

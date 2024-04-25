@@ -23,8 +23,7 @@ return new class extends Migration
             $table->string('course');
             $table->string('address');
             $table->string('parent');
-            // $table->string('username')->unique();
-            // $table->string('password');
+            $table->string('parent_id');
             $table->timestamps();
         });
     }

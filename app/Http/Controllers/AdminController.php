@@ -38,7 +38,7 @@ class AdminController extends Controller
         // Check if the student has already logged in today
         $log = Logs::where([
             'id_student' => $request->id_student,
-            'tanngal' => date('Y-m-d'),
+            'date' => date('Y-m-d'),
         ])->first();
 
         if ($log) {
@@ -51,7 +51,7 @@ class AdminController extends Controller
             // Student has not logged in today, create a new log entry with login time
             Logs::create([
                 'id_student' => $request->id_student,
-                'tanngal' => date('Y-m-d'),
+                'date' => date('Y-m-d'),
                 'login_time' => now(),
             ]);
             return redirect('/scan')->with('success', 'Student has logged in successfully');
