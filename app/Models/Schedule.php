@@ -17,9 +17,4 @@ class Schedule extends Model
         'schedule',
         'unit',
     ];
-
-    // public function students()
-    // {
-    //     return $this->hasMany(Schedule::class);
-    // }
 }

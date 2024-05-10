@@ -6,23 +6,44 @@
 
 
 @section('content')
-    <a href="/admin/dashboard" class="absolute right-2 text-4xl hover:text-gray-300">X</a>
-    <div class="container mx-auto px-4">
+    <a href="/admin/dashboard" class="flex justify-end text-4xl hover:text-gray-300">X</a>
+    <div class="flex justify-between mx-auto px-4">
         <div class="flex justify-center  min-h-screen top-0">
-            <div class="w-[850px] max-w-lx mt-4">
-                <video id="preview" class="w-full h-auto"></video>
-                <form action="{{ route('scan') }}" method="POST" id="form">
-                    @csrf
-                    <input type="hidden" name="id_student" id="id_student">
-                </form>
-                @if (session()->has('error'))
-                    <p class="mt-5 text-md text-red-500">{{ session('error') }}</p>
-                @endif
-                @if (session()->has('success'))
-                    <p class="mt-5 text-md text-green-500">{{ session('success') }}</p>
-                @endif
+            <div class="w-[750px] mt-4">
+                <div class="bg-gray-200 w-[620px] ml-5">
+                    <div class="px-4 py-4">
+                        <video id="preview" class="w-[600px] h-auto"></video>
+                        {{-- top-left --}}
+                        <div class="border-2 border-blue-500 w-16 absolute top-[130px] left-[180px]"></div>
+                        <div class="border-2 border-blue-500 w-16 absolute top-[160px] transform rotate-90 left-[150px]">
+                        </div>
+                        {{-- bottom-left --}}
+                        <div class="border-2 border-blue-500 w-16 absolute top-[320px] transform rotate-90 left-[150px]">
+                        </div>
+                        <div class="border-2 border-blue-500 w-16 absolute top-[350px] left-[180px]"></div>
+                        {{-- top-right --}}
+                        <div class="border-2 border-blue-500 w-16 absolute top-[130px] left-[430px]"></div>
+                        <div class="border-2 border-blue-500 w-16 absolute top-[160px] transform rotate-90 left-[460px]">
+                        </div>
+                        {{-- bottom-right --}}
+                        <div class="border-2 border-blue-500 w-16 absolute top-[320px] transform rotate-90 left-[460px]">
+                        </div>
+                        <div class="border-2 border-blue-500 w-16 absolute top-[350px] left-[430px]"></div>
+
+                        <form action="{{ route('scan') }}" method="POST" id="form">
+                            @csrf
+                            <input type="hidden" name="id_student" id="id_student">
+                        </form>
+                    </div>
+                    @if (session()->has('error'))
+                        <div class="px-2 py-2 bg-red-500 text-md text-white">{{ session('error') }}</div>
+                    @endif
+                    @if (session()->has('success'))
+                        <div class="px-2 py-2 bg-green-500 text-md text-white">{{ session('success') }}</div>
+                    @endif
+                </div>
             </div>
-            <div class="ml-10">
+            <div class="ml-10 w-[550px]">
                 <label for="default-input" class="block mt-4 mb-2 text-4xl font-inter text-center  dark:text-white">
                     SCAN QR CODE</label>
                 <input type="text" id="text" readonly value=""
@@ -65,7 +86,6 @@
                 </table>
             </div>
         </div>
-
     </div>
     <script>
         let scanner = new Instascan.Scanner({
@@ -73,8 +93,11 @@
         });
         scanner.addListener('scan', function(c) {
             document.getElementById('text').value = c;
+            // setTimeout(function() {
+            // document.getElementById('text').classList.remove('hidden');
             document.getElementById('id_student').value = c;
             document.getElementById('form').submit();
+            // }, 2000);
         });
         Instascan.Camera.getCameras().then(function(cameras) {
             if (cameras.length > 0) {

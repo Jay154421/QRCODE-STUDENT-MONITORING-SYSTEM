@@ -41,8 +41,6 @@ class LoginController extends Controller
         // Assuming the user is already authenticated
         $user = Auth::user(); // Get the authenticated user
 
-
-
         // Check the user's role and redirect accordingly
         if ($user->role === 'admin') {
             return redirect('/admin/dashboard');
@@ -56,9 +54,6 @@ class LoginController extends Controller
             session(['student_id' => $user->student_id]);
 
             return redirect('/student/dashboard');
-        } else {
-            // Default redirect if the role is not recognized
-            return redirect('/')->with('error', 'Unauthorized access');
         }
     }
 

@@ -29,7 +29,6 @@ class Student extends Model
         return $this->hasMany(Logs::class, 'idnumber', 'id_student');
     }
 
-    // In your Student model
     public function parent()
     {
         return $this->belongsTo(Parent::class, 'parent_id');

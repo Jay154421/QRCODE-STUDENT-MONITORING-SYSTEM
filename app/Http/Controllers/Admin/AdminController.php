@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+
+use Twilio\Rest\Client;
 use App\Models\Parents;
 use App\Models\Student;
 use App\Models\Logs;
@@ -23,7 +25,7 @@ class AdminController extends Controller
 
     public function showAttendance()
     {
-        $Records = Logs::orderBy('login_time', 'asc')->get();
+        $Records = Logs::orderBy('login_time', 'desc')->get();
         return view('admin.scanner', compact('Records'));
     }
 
