@@ -1,6 +1,6 @@
 <!-- Modal toggle -->
 <button data-modal-target="static-modal" data-modal-toggle="static-modal" type="submit"
-    class="item px-6 py-2 text-black font-semibold rounded-lg border border-blue-500 hover:bg-blue-500 hover:text-white">
+    class="item px-6 py-2 text-black font-semibold rounded-lg border border-red-900 hover:bg-red-900 hover:text-white">
     Change Password</button>
 
 

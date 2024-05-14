@@ -29,6 +29,23 @@ class AdminController extends Controller
         return view('admin.scanner', compact('Records'));
     }
 
+    public function sendSms($message)
+    {
+        // Example using Vonage
+        $basic = new \Vonage\client\Credentials\Basic('b9a82d6e', 'pEZ0HK93Wm1Iprg1');
+        $client = new \Vonage\Client($basic);
+        // Set the CA bundle path for Guzzle with a relative path
+        $guzzleClient = new \GuzzleHttp\Client([
+            'verify' => storage_path('cacert.pem'),
+        ]);
+        $client->setHttpClient($guzzleClient);
+        $message = $client->sms()->send(
+            new \Vonage\SMS\Message\SMS("639566815765", "SMS Test", $message)
+        );
+        // Return a response
+        return response()->json(['message' => 'SMS sent successfully']);
+    }
+
     public function store(Request $request)
     {
         // Check if the student exists
@@ -49,6 +66,7 @@ class AdminController extends Controller
             $log->update([
                 'logout_time' => now(),
             ]);
+            $this->sendSms('Your student has logged out');
             return redirect('/scan')->with('success', 'Student has logged out successfully');
         } else {
             // Student has not logged in today, create a new log entry with login time
@@ -57,6 +75,8 @@ class AdminController extends Controller
                 'date' => date('Y-m-d'),
                 'login_time' => now(),
             ]);
+
+            $this->sendSms('Your student has logged in');
             return redirect('/scan')->with('success', 'Student has logged in successfully');
         }
     }

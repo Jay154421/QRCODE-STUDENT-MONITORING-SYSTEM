@@ -38,10 +38,9 @@ class LoginController extends Controller
 
     public function redirectDash(Request $request)
     {
-        // Assuming the user is already authenticated
-        $user = Auth::user(); // Get the authenticated user
 
-        // Check the user's role and redirect accordingly
+        $user = Auth::user();
+
         if ($user->role === 'admin') {
             return redirect('/admin/dashboard');
         } elseif ($user->role === 'parent') {

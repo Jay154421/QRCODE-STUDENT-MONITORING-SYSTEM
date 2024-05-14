@@ -10,8 +10,7 @@
 @section('content')
     @include('error.changepassword')
     <div class=" mx-24 w-28  flex flex-row items-center">
-        <img src="https://chart.googleapis.com/chart?cht=qr&chl=Jay%20E.%20Bodiongan&chs=180x180&choe=UTF-8&chld=L|2"
-            alt="qr code"><a href="www.qr-code-generator.com/" border="0" style="cursor:default" rel="nofollow"></a>
+        <a href="" id="container">{{ $qrCodes }}</a><br />
     </div>
     <div class="mx-24 my-4 flex flex-row items-center">
         <div class="text-xl font-bold w-14">Name</div>

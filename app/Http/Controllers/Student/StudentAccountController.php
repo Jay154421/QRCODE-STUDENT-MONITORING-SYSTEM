@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Hash;
 
 class StudentAccountController extends Controller
@@ -25,7 +26,8 @@ class StudentAccountController extends Controller
     {
         $studentId = session('student_id');
         $student = Student::findOrFail($studentId);
-        return view('student.profile', compact('student'));
+        $qrCodes = QrCode::size(120)->generate($student->idnumber);
+        return view('student.profile', compact('student', 'qrCodes'));
     }
 
     public function changePassword(Request $request)
