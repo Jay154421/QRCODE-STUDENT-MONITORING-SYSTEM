@@ -9,9 +9,11 @@
         "guzzlehttp/guzzle": "^7.2",
         "laracasts/flash": "^3.2",
         "laravel/framework": "^9.19",
+        "laravel/helpers": "^1.7",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "livewire/livewire": "^2.12"
+        "simplesoftwareio/simple-qrcode": "^4.2",
+        "vonage/client": "^4.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

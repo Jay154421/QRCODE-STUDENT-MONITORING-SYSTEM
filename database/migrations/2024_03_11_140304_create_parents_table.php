@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('age');
             $table->string('address');
             $table->string('phone');
-            $table->string('username')->unique();
-            $table->string('password');
+            // $table->string('username')->unique();
+            // $table->string('password');
             $table->timestamps();
         });
     }

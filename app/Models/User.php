@@ -18,8 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'parent_id',
+        'student_id',
         'username',
         'password',
+        'role',
     ];
 
     /**
@@ -33,7 +36,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be ca st.
      *
      * @var array<string, string>
      */

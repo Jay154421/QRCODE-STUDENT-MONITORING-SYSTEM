@@ -1,27 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <title>ScannerCode</title>
+@section('title')
+    Scanner
+@endsection
 
-    @vite(['resources/css/app.css', 'resources/js/app.js']);
-</head>
 
-<body>
-    <a href="/admin/dashboard" class="absolute right-0 text-4xl">X</a>
-    <div class="container mx-auto px-4">
+@section('content')
+    <a href="/admin/dashboard" class="flex justify-end text-4xl hover:text-gray-300">X</a>
+    <div class="flex justify-between mx-auto px-4">
         <div class="flex justify-center  min-h-screen top-0">
-            <div class="w-full max-w-lx">
-                <video id="preview" class="w-full h-auto"></video>
+            <div class="w-[750px] mt-4">
+                <div class="bg-gray-200 w-[620px] ml-5">
+                    <div class="px-4 py-4">
+                        <video id="preview" class="w-[600px] h-auto"></video>
+                        {{-- top-left --}}
+                        <div class="border-2 border-blue-500 w-16 absolute top-[130px] left-[180px]"></div>
+                        <div class="border-2 border-blue-500 w-16 absolute top-[160px] transform rotate-90 left-[150px]">
+                        </div>
+                        {{-- bottom-left --}}
+                        <div class="border-2 border-blue-500 w-16 absolute top-[320px] transform rotate-90 left-[150px]">
+                        </div>
+                        <div class="border-2 border-blue-500 w-16 absolute top-[350px] left-[180px]"></div>
+                        {{-- top-right --}}
+                        <div class="border-2 border-blue-500 w-16 absolute top-[130px] left-[430px]"></div>
+                        <div class="border-2 border-blue-500 w-16 absolute top-[160px] transform rotate-90 left-[460px]">
+                        </div>
+                        {{-- bottom-right --}}
+                        <div class="border-2 border-blue-500 w-16 absolute top-[320px] transform rotate-90 left-[460px]">
+                        </div>
+                        <div class="border-2 border-blue-500 w-16 absolute top-[350px] left-[430px]"></div>
+
+                        <form action="{{ route('scan') }}" method="POST" id="form">
+                            @csrf
+                            <input type="hidden" name="id_student" id="id_student">
+                        </form>
+                    </div>
+                    @if (session()->has('error'))
+                        <div class="px-2 py-2 bg-red-500 text-md text-white">{{ session('error') }}</div>
+                    @endif
+                    @if (session()->has('success'))
+                        <div class="px-2 py-2 bg-green-500 text-md text-white">{{ session('success') }}</div>
+                    @endif
+                </div>
             </div>
-            <div class="ml-10">
-                <label for="default-input" class="block mb-2 text-xl font-inter text-center  dark:text-white">SCAN QR
-                    CODE</label>
+            <div class="ml-10 w-[550px]">
+                <label for="default-input" class="block mt-4 mb-2 text-4xl font-inter text-center  dark:text-white">
+                    SCAN QR CODE</label>
                 <input type="text" id="text" readonly value=""
                     class="bg-gray-50 justify-center border rounded-lg w-full">
                 <table class="min-w-full divide-y divide-gray-200 mt-4">
@@ -42,25 +66,26 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                2024/01/12
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                JAY E. BODIONGAN
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                7:30AM
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                9:30AM
-                            </td>
-                        </tr>
+                        @foreach ($Records as $record)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ $record->date }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ $record->student->name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ $record->login_time }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ $record->logout_time }}
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-
     </div>
     <script>
         let scanner = new Instascan.Scanner({
@@ -68,6 +93,11 @@
         });
         scanner.addListener('scan', function(c) {
             document.getElementById('text').value = c;
+            // setTimeout(function() {
+            // document.getElementById('text').classList.remove('hidden');
+            document.getElementById('id_student').value = c;
+            document.getElementById('form').submit();
+            // }, 2000);
         });
         Instascan.Camera.getCameras().then(function(cameras) {
             if (cameras.length > 0) {
@@ -79,6 +109,4 @@
             console.error(e);
         });
     </script>
-</body>
-
-</html>
+@endsection

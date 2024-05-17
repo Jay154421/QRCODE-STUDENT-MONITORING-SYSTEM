@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Parents extends Model
 {
     use HasFactory;
+
 
     protected $fillable = [
         'name',
@@ -15,7 +17,12 @@ class Parents extends Model
         'age',
         'address',
         'phone',
-        'username',
-        'password'
+        // 'username',
+        // 'password'
     ];
+
+    public function students()
+    {
+        return $this->hasMany(Student::class, 'parent_id');
+    }
 }

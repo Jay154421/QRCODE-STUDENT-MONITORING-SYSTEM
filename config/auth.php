@@ -40,6 +40,20 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        // 'student' => [
+        //     'driver' => 'session',
+        //     'provider' => 'students',
+        // ],
+
+        // 'parent' => [
+        //     'driver' => 'session',
+        //     'provider' => 'parents',
+        // ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -64,6 +78,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class, // Make sure this model exists and is correctly set up
+        ],
+        // 'parents' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Models\User::class, 
+        // ],
 
         // 'users' => [
         //     'driver' => 'database',

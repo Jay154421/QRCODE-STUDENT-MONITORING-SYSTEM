@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str; // Correctly import the Str class
-use Illuminate\Support\Facades\Hash; // Correctly import the Hash facade
-use Illuminate\Support\Facades\DB; // Correctly import the DB facade
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class Account extends Seeder
 {
@@ -19,7 +19,20 @@ class Account extends Seeder
         DB::table('users')->insert([
             'username' => 'admin',
             'password' => Hash::make('admin'),
+            'role' => 'admin',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'parent',
+            'password' => Hash::make('parent'),
+            'role' => 'parent',
+
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'student',
+            'password' => Hash::make('student'),
+            'role' => 'student',
         ]);
     }
 }
-
