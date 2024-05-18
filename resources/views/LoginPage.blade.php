@@ -30,7 +30,7 @@
                         class="mt-1 block w-full sm:w-96 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                 </div>
                 <div class="flex items-center justify-center">
-                    <button type="submit" class="item px-6 py-2 text-white font-semibold rounded-lg "
+                    <button type="submit" class="px-6 py-2 hover:scale-110 text-white font-semibold rounded-lg "
                         style="background-color: #6C1B1B;">Login</button>
                 </div>
             </form>

@@ -11,7 +11,7 @@
     @include('error.schedule')
     <div class="relative overflow-x-auto">
         <div class="flex flex-shrink justify-center">
-            <p class="tracking-widest relative text-4xl ">SCHEDULE</p>
+            <p class="mb-6 tracking-widest relative text-4xl ">SCHEDULE</p>
         </div>
         <div class="flex items-end justify-end">
             <div class="px-2 py-2">

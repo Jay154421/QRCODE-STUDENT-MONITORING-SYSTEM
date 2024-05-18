@@ -25,8 +25,13 @@ class AdminController extends Controller
 
     public function showAttendance()
     {
-        $Records = Logs::orderBy('login_time', 'desc')->get();
-        return view('admin.scanner', compact('Records'));
+        return view('admin.scanner');
+    }
+
+    public function fetchStudent($idnumber)
+    {
+        $student = Student::where('idnumber', $idnumber)->first();
+        return response()->json($student);
     }
 
     public function sendSms($message)
@@ -66,7 +71,7 @@ class AdminController extends Controller
             $log->update([
                 'logout_time' => now(),
             ]);
-            $this->sendSms('Your student has logged out');
+            // $this->sendSms('Your student has logged out');
             return redirect('/scan')->with('success', 'Student has logged out successfully');
         } else {
             // Student has not logged in today, create a new log entry with login time
@@ -76,7 +81,7 @@ class AdminController extends Controller
                 'login_time' => now(),
             ]);
 
-            $this->sendSms('Your student has logged in');
+            // $this->sendSms('Your student has logged in');
             return redirect('/scan')->with('success', 'Student has logged in successfully');
         }
     }

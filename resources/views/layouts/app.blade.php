@@ -29,7 +29,6 @@
 </head>
 
 <body>
-
     {{-- Main --}}
     @yield('content')
 

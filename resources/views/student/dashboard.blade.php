@@ -10,7 +10,7 @@
 @section('content')
     <div class="relative overflow-x-auto">
         <div class="flex flex-shrink justify-center">
-            <p class="relative text-4xl font-serif">SCHOOL IN AND OUT</p>
+            <p class="mb-6 tracking-widest relative text-4xl">SCHOOL IN AND OUT</p>
         </div>
         <table class="w-full  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

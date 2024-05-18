@@ -36,7 +36,7 @@ Route::get('/load', [LoginController::class, 'loadLogin']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('login', [LoginController::class, 'loginAction']);
 
-
+Route::get('/admin/student/{idnumber}', [AdminController::class, 'fetchStudent'])->name('fetch.student');
 
 // Admin account
 Route::group(['middleware' => 'admin'], function () {
@@ -73,7 +73,7 @@ Route::group(['middleware' => 'parent'], function () {
 
 //Student account
 Route::group(['middleware' => 'student'], function () {
-    Route::get('/student/dashboard', [StudentAccountController::class, 'showDashboard']);
+    Route::get('/student/dashboard', [StudentAccountController::class, 'showDashboard'])->name('student.dashboard');
     Route::get('/student/profile', [StudentAccountController::class, 'showProfile'])->name('student.profile');
     Route::post('/student/change-password', [StudentAccountController::class, 'changePassword'])->name('student.change-password');
 

@@ -14,21 +14,21 @@
                     <div class="px-4 py-4">
                         <video id="preview" class="w-[600px] h-auto"></video>
                         {{-- top-left --}}
-                        <div class="border-2 border-blue-500 w-16 absolute top-[130px] left-[180px]"></div>
-                        <div class="border-2 border-blue-500 w-16 absolute top-[160px] transform rotate-90 left-[150px]">
+                        <div class="border-2 border-white w-16 absolute top-[130px] left-[180px]"></div>
+                        <div class="border-2 border-white w-16 absolute top-[160px] transform rotate-90 left-[150px]">
                         </div>
                         {{-- bottom-left --}}
-                        <div class="border-2 border-blue-500 w-16 absolute top-[320px] transform rotate-90 left-[150px]">
+                        <div class="border-2 border-white w-16 absolute top-[320px] transform rotate-90 left-[150px]">
                         </div>
-                        <div class="border-2 border-blue-500 w-16 absolute top-[350px] left-[180px]"></div>
+                        <div class="border-2 border-white w-16 absolute top-[350px] left-[180px]"></div>
                         {{-- top-right --}}
-                        <div class="border-2 border-blue-500 w-16 absolute top-[130px] left-[430px]"></div>
-                        <div class="border-2 border-blue-500 w-16 absolute top-[160px] transform rotate-90 left-[460px]">
+                        <div class="border-2 border-white w-16 absolute top-[130px] left-[430px]"></div>
+                        <div class="border-2 border-white w-16 absolute top-[160px] transform rotate-90 left-[460px]">
                         </div>
                         {{-- bottom-right --}}
-                        <div class="border-2 border-blue-500 w-16 absolute top-[320px] transform rotate-90 left-[460px]">
+                        <div class="border-2 border-white w-16 absolute top-[320px] transform rotate-90 left-[460px]">
                         </div>
-                        <div class="border-2 border-blue-500 w-16 absolute top-[350px] left-[430px]"></div>
+                        <div class="border-2 border-white w-16 absolute top-[350px] left-[430px]"></div>
 
                         <form action="{{ route('scan') }}" method="POST" id="form">
                             @csrf
@@ -43,70 +43,62 @@
                     @endif
                 </div>
             </div>
-            <div class="ml-10 w-[550px]">
-                <label for="default-input" class="block mt-4 mb-2 text-4xl font-inter text-center  dark:text-white">
-                    SCAN QR CODE</label>
-                <input type="text" id="text" readonly value=""
-                    class="bg-gray-50 justify-center border rounded-lg w-full">
-                <table class="min-w-full divide-y divide-gray-200 mt-4">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">
-                                Date
-                            </th>
-                            <th class="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">
-                                Name
-                            </th>
-                            <th class="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">
-                                IN
-                            </th>
-                            <th class="px-6 py-3 text-left text-xs font-bold text-gray-900 uppercase tracking-wider">
-                                OUT
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($Records as $record)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $record->date }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $record->student->name }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $record->login_time }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $record->logout_time }}
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            <div class="ml-10 w-[520px] h-[600px] px-14 py-5 border-4 border-gray-500">
+                <div class="text-3xl mx-2 mb-6 text-center tracking-[4px]">SCAN STUDENT</div>
+                <div id="text"
+                    class="hidden w-[400px] px-5 py-5 text-center border border-black rounded-md flex justify-center items-center flex-col">
+                    <div class="flex flex-row justify-evenly items-center mb-3">
+                        <div class="w-12 mx-2">
+                            <img src="{{ asset('image/Logo.PNG') }}" alt="Logo">
+                        </div>
+                        <div class=" text-xl text-center tracking-[2px]  text-red-800">ST. PETER'S COLLEGE</div>
+                    </div>
+                    <div class="w-[160px] mx-4 mb-2 ">
+                        <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png " width="256" height="256"
+                            alt="" title="" class="img-small">
+                    </div>
+                    <div class="mx-2 mb-8 text-xl tracking-[5px] ">STUDENT</div>
+                    <div id="student_id" class="mx-2 my-1 text-[15px] tracking-[2px] "></div>
+                    <div id="student" class="mx-2 my-1 text-[24px]   uppercase "></div>
+                    <div id="course" class="mx-2 my-2 text-xs tracking-[2px] uppercase "></div>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        let scanner = new Instascan.Scanner({
-            video: document.getElementById('preview')
-        });
-        scanner.addListener('scan', function(c) {
-            document.getElementById('text').value = c;
-            // setTimeout(function() {
-            // document.getElementById('text').classList.remove('hidden');
-            document.getElementById('id_student').value = c;
-            document.getElementById('form').submit();
-            // }, 2000);
-        });
-        Instascan.Camera.getCameras().then(function(cameras) {
-            if (cameras.length > 0) {
-                scanner.start(cameras[0]);
-            } else {
-                console.error('No cameras found.');
-            }
-        }).catch(function(e) {
-            console.error(e);
-        });
-    </script>
-@endsection
+        <script>
+            let scanner = new Instascan.Scanner({
+                video: document.getElementById('preview')
+            });
+            scanner.addListener('scan', function(c) {
+                // document.getElementById('text').value = c;
+                // setTimeout(function() {
+                document.getElementById('text').classList.remove('hidden');
+                document.getElementById('id_student').value = c;
+                document.getElementById('form').submit();
+
+
+
+                // Fetch student data
+                fetch(`/admin/student/${c}`)
+                    .then(response => response.json())
+                    .then(student => {
+                        // Display student data
+                        document.getElementById('student').innerText = student.name;
+                        document.getElementById('student_id').innerText = student.idnumber;
+                        document.getElementById('course').innerText = student.course;
+                    }).fadeOut(3000);
+                .catch(error => console.error('Error fetching student data:', error));
+                // }, 2000);
+
+            });
+
+            Instascan.Camera.getCameras().then(function(cameras) {
+                if (cameras.length > 0) {
+                    scanner.start(cameras[0]);
+                } else {
+                    console.error('No cameras found.');
+                }
+            }).catch(function(e) {
+                console.error(e);
+            });
+        </script>
+    @endsection
