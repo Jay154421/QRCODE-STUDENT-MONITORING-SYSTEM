@@ -1,4 +1,4 @@
-<!-- resources/views/components/student-update-modal.blade.php -->
+
 <button onclick="openModal('updateModal{{ $student->id }}')"
     class="bg-blue-500 text-white rounded-md px-2 py-2 hover:bg-blue-300 transition">
     Update

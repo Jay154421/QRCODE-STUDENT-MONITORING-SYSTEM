@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <video id="qr-video" width="300" height="300"></video>
+    {{-- <video id="qr-video" width="300" height="300"></video>
 
     <script>
         let video;
@@ -49,7 +49,7 @@
             rect(location.topLeftCorner.x, location.topLeftCorner.y, location.bottomRightCorner.x - location.topLeftCorner
                 .x, location.bottomRightCorner.y - location.topLeftCorner.y);
         }
-    </script>
+    </script> --}}
 </body>
 
 

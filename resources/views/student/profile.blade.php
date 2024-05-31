@@ -9,6 +9,7 @@
 
 @section('content')
     @include('error.changepassword')
+    <button class=" relative top-[80px] left-[125px] p-1 text-md  bg-white hover:bg-gray-200 rounded-md  ">Click me</button>
     <div class=" mx-24 w-28  flex flex-row items-center">
         <a href="" id="container">{{ $qrCodes }}</a><br />
     </div>

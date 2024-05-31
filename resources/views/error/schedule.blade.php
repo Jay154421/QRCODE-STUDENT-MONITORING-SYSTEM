@@ -8,7 +8,7 @@
         toastr.error("{{ $message }}");
     </script>
 @enderror
-@error('subjcode')
+@error('section')
     <script>
         toastr.options = {
             "progressBar": true,

@@ -6,6 +6,7 @@
 
 
 @section('content')
+    <div class="fixed left-[20%] text-3xl">Time: 12:23:21</div>
     <a href="/admin/dashboard" class="flex justify-end text-4xl hover:text-gray-300">X</a>
     <div class="flex justify-between mx-auto px-4">
         <div class="flex justify-center  min-h-screen top-0">
@@ -46,7 +47,7 @@
             <div class="ml-10 w-[520px] h-[600px] px-14 py-5 border-4 border-gray-500">
                 <div class="text-3xl mx-2 mb-6 text-center tracking-[4px]">SCAN STUDENT</div>
                 <div id="text"
-                    class="hidden w-[400px] px-5 py-5 text-center border border-black rounded-md flex justify-center items-center flex-col">
+                    class=" hidden w-[400px] px-5 py-5 text-center border border-black rounded-md flex justify-center items-center flex-col">
                     <div class="flex flex-row justify-evenly items-center mb-3">
                         <div class="w-12 mx-2">
                             <img src="{{ asset('image/Logo.PNG') }}" alt="Logo">
@@ -85,8 +86,8 @@
                         document.getElementById('student').innerText = student.name;
                         document.getElementById('student_id').innerText = student.idnumber;
                         document.getElementById('course').innerText = student.course;
-                    }).fadeOut(3000);
-                .catch(error => console.error('Error fetching student data:', error));
+                    }).fadeOut('slow')
+                    .catch(error => console.error('Error fetching student data:', error)).fadeOut(9000);
                 // }, 2000);
 
             });
